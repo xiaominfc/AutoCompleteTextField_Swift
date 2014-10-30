@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A85AF82A1A02492600DE2961 /* AutoEmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AF8291A02492600DE2961 /* AutoEmailTextField.swift */; };
 		A8C437A41A010A6300D7E575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C437A31A010A6300D7E575 /* AppDelegate.swift */; };
 		A8C437A61A010A6300D7E575 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C437A51A010A6300D7E575 /* ViewController.swift */; };
 		A8C437A91A010A6300D7E575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C437A71A010A6300D7E575 /* Main.storyboard */; };
 		A8C437AB1A010A6300D7E575 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8C437AA1A010A6300D7E575 /* Images.xcassets */; };
 		A8C437AE1A010A6300D7E575 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8C437AC1A010A6300D7E575 /* LaunchScreen.xib */; };
 		A8C437BA1A010A6300D7E575 /* AutoCompleteTextFieldAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C437B91A010A6300D7E575 /* AutoCompleteTextFieldAppTests.swift */; };
+		A8C437C41A010ABE00D7E575 /* AutoCompleteTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C437C31A010ABE00D7E575 /* AutoCompleteTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A85AF8291A02492600DE2961 /* AutoEmailTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoEmailTextField.swift; sourceTree = "<group>"; };
 		A8C4379E1A010A6300D7E575 /* AutoCompleteTextFieldApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoCompleteTextFieldApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C437A21A010A6300D7E575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8C437A31A010A6300D7E575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		A8C437B31A010A6300D7E575 /* AutoCompleteTextFieldAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoCompleteTextFieldAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C437B81A010A6300D7E575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8C437B91A010A6300D7E575 /* AutoCompleteTextFieldAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompleteTextFieldAppTests.swift; sourceTree = "<group>"; };
+		A8C437C31A010ABE00D7E575 /* AutoCompleteTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompleteTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				A8C437AA1A010A6300D7E575 /* Images.xcassets */,
 				A8C437AC1A010A6300D7E575 /* LaunchScreen.xib */,
 				A8C437A11A010A6300D7E575 /* Supporting Files */,
+				A8C437C31A010ABE00D7E575 /* AutoCompleteTextField.swift */,
+				A85AF8291A02492600DE2961 /* AutoEmailTextField.swift */,
 			);
 			path = AutoCompleteTextFieldApp;
 			sourceTree = "<group>";
@@ -212,6 +218,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8C437C41A010ABE00D7E575 /* AutoCompleteTextField.swift in Sources */,
+				A85AF82A1A02492600DE2961 /* AutoEmailTextField.swift in Sources */,
 				A8C437A61A010A6300D7E575 /* ViewController.swift in Sources */,
 				A8C437A41A010A6300D7E575 /* AppDelegate.swift in Sources */,
 			);
@@ -405,6 +413,7 @@
 				A8C437BF1A010A6300D7E575 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A8C437C01A010A6300D7E575 /* Build configuration list for PBXNativeTarget "AutoCompleteTextFieldAppTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +422,7 @@
 				A8C437C21A010A6300D7E575 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

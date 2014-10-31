@@ -31,14 +31,6 @@ class BottomLineTableCell:UITableViewCell {
 
 class AutoCompleteTextField: UITextField,UITableViewDelegate,UITableViewDataSource{
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
-    
     let CELLHEIGHT:CGFloat = 24;
     let AUTOCONTENTHEIGHT:CGFloat = (5 * 24);
     let AUTOCONTENTMARGIN:CGFloat = 2;
@@ -46,6 +38,9 @@ class AutoCompleteTextField: UITextField,UITableViewDelegate,UITableViewDataSour
     
     var autoCompleteTableView : UITableView? = nil;
     var contentSource : NSMutableArray? = nil;
+    
+    var actionTarget : AnyObject? = nil;
+    var workAction : Selector? = nil;
     
     
     
@@ -57,7 +52,7 @@ class AutoCompleteTextField: UITextField,UITableViewDelegate,UITableViewDataSour
     
     
     func initContent(){
-        self.addTarget(self, action:"valueChanged:", forControlEvents: UIControlEvents.EditingChanged);
+        super.addTarget(self, action:"valueChanged:", forControlEvents: UIControlEvents.EditingChanged);
         self.contentSource = NSMutableArray();
         self.initData();
     }
@@ -66,9 +61,19 @@ class AutoCompleteTextField: UITextField,UITableViewDelegate,UITableViewDataSour
     
     func valueChanged(sender:UITextField){
         self.showAutoTableView();
+        if(workAction != nil && actionTarget != nil){
+            actionTarget?.targetForAction(workAction!, withSender: sender);
+        }
     }
     
-    
+    override func addTarget(target: AnyObject?, action: Selector, forControlEvents controlEvents: UIControlEvents) {
+        if(controlEvents != UIControlEvents.EditingChanged){
+            super.addTarget(target, action: action, forControlEvents: controlEvents);
+        }else {
+            actionTarget = target;
+            workAction = action;
+        }
+    }
     
     func initData(){
         

@@ -75,6 +75,15 @@ class AutoCompleteTextField: UITextField,UITableViewDelegate,UITableViewDataSour
         }
     }
     
+    override func removeTarget(target: AnyObject?, action: Selector, forControlEvents controlEvents: UIControlEvents) {
+        if(controlEvents != UIControlEvents.EditingChanged){
+            super.removeTarget(target, action: action, forControlEvents: controlEvents);
+        }else {
+            actionTarget = nil;
+            workAction = nil;
+        }
+    }
+    
     func initData(){
         
     }

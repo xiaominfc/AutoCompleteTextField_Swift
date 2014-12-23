@@ -1,4 +1,4 @@
 AutoCompleteTextField_Swift
 ===========================
 
-AutoCompleteTextField implete by swift
+AutoCompleteTextField implement by swift

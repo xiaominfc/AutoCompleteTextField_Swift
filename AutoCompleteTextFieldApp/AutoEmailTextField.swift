@@ -22,13 +22,13 @@ class AutoEmailTextField: AutoCompleteTextField {
     override func updateData() {
         self.contentSource?.removeAllObjects();
         
-        var text = String(self.text);
+        var text = String(self.text!);
         
         if(text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0){
             hideAutoTableView();
         }else {
             let array = text.componentsSeparatedByString("@") as NSArray;
-            text = array.objectAtIndex(0) as String;
+            text = array.objectAtIndex(0) as! String;
             contentSource?.addObject(text.stringByAppendingString("@hotmail.com"));
             contentSource?.addObject(text.stringByAppendingString("@gmail.com"));
             contentSource?.addObject(text.stringByAppendingString("@126.com"));

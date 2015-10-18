@@ -10,30 +10,12 @@ import UIKit
 
 
 
-class BottomLineTableCell:UITableViewCell {
-    
-    let lineColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.4);
-    
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect);
-        var context = UIGraphicsGetCurrentContext();
-        CGContextSetLineCap(context,kCGLineCapSquare);
-        CGContextSetLineWidth(context, 1.0);
-        CGContextSetStrokeColorWithColor(context,self.lineColor.CGColor);
-        CGContextBeginPath(context);
-        CGContextMoveToPoint(context, 0, self.frame.size.height);
-        CGContextAddLineToPoint(context, self.frame.size.width, self.frame.size.height);
-        CGContextStrokePath(context);
-        
-    }
-}
-
-
 class AutoCompleteTextField: UITextField,UITableViewDelegate,UITableViewDataSource{
 
     let CELLHEIGHT:CGFloat = 24;
     let AUTOCONTENTHEIGHT:CGFloat = (5 * 24);
     let AUTOCONTENTMARGIN:CGFloat = 2;
+    let CELLTEXTFONT:CGFloat = 12;
     
     
     var autoCompleteTableView : UITableView? = nil;
@@ -44,9 +26,9 @@ class AutoCompleteTextField: UITextField,UITableViewDelegate,UITableViewDataSour
     
     
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
-        println("init");
+        print("init");
         initContent();
     }
     
@@ -112,11 +94,23 @@ class AutoCompleteTextField: UITextField,UITableViewDelegate,UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = BottomLineTableCell();
-        cell.textLabel.font = UIFont(name: "Helvetica", size: 12);
-        cell.textLabel.text = self.contentSource?.objectAtIndex(indexPath.row).description;
-        cell.contentMode = UIViewContentMode.Left;
-        return cell;
+        
+        
+        var cell = tableView.dequeueReusableCellWithIdentifier("CELL");
+        if(cell == nil) {
+            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "CELL");
+//            cell = BottomLineTableCell();
+        }
+        cell?.textLabel!.font = UIFont.systemFontOfSize(CELLTEXTFONT);
+        cell?.textLabel!.text = self.contentSource?.objectAtIndex(indexPath.row).description;
+        cell?.contentMode = UIViewContentMode.Left;
+        return cell!;
+    }
+    
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.layoutMargins = UIEdgeInsetsZero;
+        cell.separatorInset = UIEdgeInsetsZero;
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -152,7 +146,9 @@ class AutoCompleteTextField: UITextField,UITableViewDelegate,UITableViewDataSour
             self.autoCompleteTableView?.layer.borderColor = borderColor.CGColor;
             self.autoCompleteTableView?.layer.borderWidth = 0.5;
             self.autoCompleteTableView?.bounces = false;
-            self.autoCompleteTableView?.separatorStyle = UITableViewCellSeparatorStyle.None;
+//            self.autoCompleteTableView?.separatorStyle = UITableViewCellSeparatorStyle.None;
+            autoCompleteTableView?.separatorInset = UIEdgeInsetsZero;
+            autoCompleteTableView?.layoutMargins = UIEdgeInsetsZero;
         }
         
        
